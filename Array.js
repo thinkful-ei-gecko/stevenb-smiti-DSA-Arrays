@@ -1,10 +1,12 @@
-import Memory from './Memory';
+const Memory = require('./Memory');
+
+let memory = new Memory();
 
 class Array {
   constructor() {
     this.length = 0;
     this._capacity = 0;
-    this.ptr = Memory.allocate(this.length);
+    this.ptr = memory.allocate(this.length);
   }
 
   push(value) {
@@ -12,20 +14,31 @@ class Array {
       this._resize((this.length + 1) * Array.SIZE_RATIO)
     }
 
-    Memory.set(this.ptr + this.length, value);
+    memory.set(this.ptr + this.length, value);
     this.length++;
+  }
+
+  pop() {
+    if (this.length == 0) {
+      throw new Error('Index error');
+    }
+    const value = memory.get(this.ptr + this.length - 1);
+    this.length--;
+    return value;
   }
 
   _resize(size) {
     const oldPtr = this.ptr;
-    this.ptr = Memory.allocate(size);
+    this.ptr = memory.allocate(size);
     if (this.ptr === null) {
       throw new Error('Out of memory');
     }
-    Memory.copy(this.ptr, oldPtr, this.length);
-    Memory.free(oldPtr);
+    memory.copy(this.ptr, oldPtr, this.length);
+    memory.free(oldPtr);
     this._capacity = size;
   }
 }
 
 Array.SIZE_RATIO = 3;
+
+module.exports = Array;
