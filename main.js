@@ -112,25 +112,47 @@ console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny'));
 
 const productsArray = (arr) => {
   let results = [];
-  let product = 1;
 
   for (let i = 0; i < arr.length; i++) {
+    let product = 1;
+
     for (let j = 0; j < arr.length; j++) {
       if (i !== j) {
         product *= arr[j];
       }
     }
     results[i] = product;
-    product = 1;
   }
   return results;
 };
 
 console.log(productsArray([1, 3, 9, 4]));
 
-/* const multiArray = () => {
-
-} */
+const multiArray = (multiArr) => {
+  const rows = [];
+  const columns = [];
+​
+  for (let i = 0; i < multiArr.length; i++) {
+      let row = multiArr[i];
+      for (let j = 0; j < row.length; j++) {
+          const item = row[j];
+          if (item === 0) {
+              rows[i] = true;
+              columns[j] = true;
+          }
+      }
+  }
+​
+  for (let i = 0; i < multiArr.length; i++) {
+      let row = multiArr[i];
+      for (let j = 0; j < row.length; j++) {
+          if (rows[i] || columns[j]) {
+              row[j] = 0;
+          }
+      }
+  }
+  return multiArr;
+}
 
 function stringRotation(str1, str2){
   if(str1.length !== str2.length){
