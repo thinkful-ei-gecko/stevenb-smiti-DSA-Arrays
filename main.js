@@ -84,17 +84,15 @@ const mergeArrays = (arr1, arr2) => {
     if (arr1[i] < arr2[i]) {
       if (arr2[i] === undefined)
         mergedArr.push(arr1[i]);
+      else if (arr1[i] === undefined)
+        mergedArr.push(arr2[i]);
       else {
         mergedArr.push(arr1[i]);
         mergedArr.push(arr2[i]);
       }
     } else {
-      if (arr1[i] === undefined)
-        mergedArr.push(arr2[i]);
-      else {
-        mergedArr.push(arr2[i]);
-        mergedArr.push(arr1[i]);
-      }
+      mergedArr.push(arr2[i]);
+      mergedArr.push(arr1[i]);
     }
     i++;
   }
@@ -103,7 +101,7 @@ const mergeArrays = (arr1, arr2) => {
   return mergedArr;
 };
 
-// console.log(mergeArrays([1, 3, 6, 8, 11], [2, 3, 5, 8, 9]));
+console.log(mergeArrays([1, 3, 6, 8, 11, 12, 13], [2, 3, 5, 8, 9]));
 
 const removeCharacters = (str) => {
   let newStr = str.replace(/[aeiou]/gi, '');
@@ -133,3 +131,13 @@ const productsArray = (arr) => {
 /* const multiArray = () => {
 
 } */
+
+function stringRotation(str1, str2){
+  if(str1.length !== str2.length){
+    return false;
+  }
+  let string = str1 + str1;
+  return string.includes(str2);
+}
+console.log(stringRotation('amazon', 'azonma'));
+console.log(stringRotation('amazon', 'azonam'));
