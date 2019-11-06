@@ -133,4 +133,4 @@ const productsArray = (arr) => {
   return results;
 };
 
-console.log(productsArray([1, 3, 9, 4]));
+// console.log(productsArray([1, 3, 9, 4]));
