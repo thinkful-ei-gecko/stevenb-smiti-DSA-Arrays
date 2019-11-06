@@ -34,5 +34,15 @@ memory address= 3
 
 Length will increase to 6 and will equal the set _capacity, thus
 creating a new capacity of 12
-Memory address will increment to 3
+Memory address will be moved to 3 to allow more room
+*/
+
+/* 
+length = 3;
+capacity = 12;
+memory address= 3
+
+length will be decremented after each pop, however
+capacity and memory address will not be altered. The memory
+will just allow the previous addresses to be overwritten
 */
