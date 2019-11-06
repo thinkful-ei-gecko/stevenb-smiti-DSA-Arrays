@@ -17,6 +17,7 @@ const main = () => {
   arr.pop();
 
   console.log(arr);
+
 };
 
 main();
@@ -46,3 +47,90 @@ length will be decremented after each pop, however
 capacity and memory address will not be altered. The memory
 will just allow the previous addresses to be overwritten
 */
+
+
+const filterArray = (arr) => {
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 5)
+      newArr.push(arr[i]);
+  }
+  return newArr;
+};
+
+// console.log(filterArray([1,2,3,4,5,6,7,8,9]));
+
+const theMaxSum = (arr) => {
+  let maxSum = null;
+  let currentSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    currentSum += arr[i];
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+    }
+  }
+  return maxSum;
+};
+
+// console.log(theMaxSum([4, 6, -3, 5, -2, 1]));
+
+const mergeArrays = (arr1, arr2) => {
+  let mergedArr = [];
+  let i = 0;
+
+  do {
+    if (arr1[i] < arr2[i]) {
+      if (arr2[i] === undefined)
+        mergedArr.push(arr1[i]);
+      else {
+        mergedArr.push(arr1[i]);
+        mergedArr.push(arr2[i]);
+      }
+    } else {
+      if (arr1[i] === undefined)
+        mergedArr.push(arr2[i]);
+      else {
+        mergedArr.push(arr2[i]);
+        mergedArr.push(arr1[i]);
+      }
+    }
+    i++;
+  }
+  while (i < arr1.length || i < arr2.length);
+
+  return mergedArr;
+};
+
+// console.log(mergeArrays([1, 3, 6, 8, 11], [2, 3, 5, 8, 9]));
+
+/* const removeCharacters = (str, removeLetters) => {
+  let string = str;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].includes(removeLetters)) {
+      str[i].replace(removeLetters, '');
+    }
+  }
+  return string;
+};
+
+console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou')); */
+
+const productsArray = (arr) => {
+  let results = [];
+  let product = 1;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (i !== j) {
+        product = product * arr[j];
+      }
+    }
+    results.push(product);
+    product = 1;
+  }
+  return results;
+};
+
+console.log(productsArray([1, 3, 9, 4]));
