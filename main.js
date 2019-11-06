@@ -126,33 +126,43 @@ const productsArray = (arr) => {
   return results;
 };
 
-console.log(productsArray([1, 3, 9, 4]));
+// console.log(productsArray([1, 3, 9, 4]));
 
 const multiArray = (multiArr) => {
   const rows = [];
   const columns = [];
-​
+
   for (let i = 0; i < multiArr.length; i++) {
-      let row = multiArr[i];
-      for (let j = 0; j < row.length; j++) {
-          const item = row[j];
-          if (item === 0) {
-              rows[i] = true;
-              columns[j] = true;
-          }
+    let row = multiArr[i];
+    for (let j = 0; j < row.length; j++) {
+      const item = row[j];
+      if (item === 0) {
+        rows[i] = true;
+        columns[j] = true;
       }
+    }
   }
-​
+
   for (let i = 0; i < multiArr.length; i++) {
-      let row = multiArr[i];
-      for (let j = 0; j < row.length; j++) {
-          if (rows[i] || columns[j]) {
-              row[j] = 0;
-          }
+    let row = multiArr[i];
+    for (let j = 0; j < row.length; j++) {
+      if (rows[i] || columns[j]) {
+        row[j] = 0;
       }
+    }
   }
   return multiArr;
-}
+};
+
+const twobytwoArr = [
+  [1,0,1,1,0],
+  [0,1,1,1,0],
+  [1,1,1,1,1],
+  [1,0,1,1,1],
+  [1,1,1,1,1]
+];
+
+// console.log(multiArray(twobytwoArr));
 
 function stringRotation(str1, str2){
   if(str1.length !== str2.length){
@@ -161,5 +171,5 @@ function stringRotation(str1, str2){
   let string = str1 + str1;
   return string.includes(str2);
 }
-console.log(stringRotation('amazon', 'azonma'));
-console.log(stringRotation('amazon', 'azonam'));
+// console.log(stringRotation('amazon', 'azonma'));
+// console.log(stringRotation('amazon', 'azonam'));
