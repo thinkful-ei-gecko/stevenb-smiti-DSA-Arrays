@@ -105,17 +105,12 @@ const mergeArrays = (arr1, arr2) => {
 
 // console.log(mergeArrays([1, 3, 6, 8, 11], [2, 3, 5, 8, 9]));
 
-/* const removeCharacters = (str, removeLetters) => {
-  let string = str;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i].includes(removeLetters)) {
-      str[i].replace(removeLetters, '');
-    }
-  }
-  return string;
+const removeCharacters = (str) => {
+  let newStr = str.replace(/[aeiou]/gi, '');
+  return newStr;
 };
 
-console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou')); */
+console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny'));
 
 const productsArray = (arr) => {
   let results = [];
@@ -134,3 +129,7 @@ const productsArray = (arr) => {
 };
 
 // console.log(productsArray([1, 3, 9, 4]));
+
+/* const multiArray = () => {
+
+} */
