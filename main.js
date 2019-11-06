@@ -117,16 +117,16 @@ const productsArray = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length; j++) {
       if (i !== j) {
-        product = product * arr[j];
+        product *= arr[j];
       }
     }
-    results.push(product);
+    results[i] = product;
     product = 1;
   }
   return results;
 };
 
-// console.log(productsArray([1, 3, 9, 4]));
+console.log(productsArray([1, 3, 9, 4]));
 
 /* const multiArray = () => {
 
